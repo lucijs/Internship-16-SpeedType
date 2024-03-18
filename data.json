@@ -1,0 +1,128 @@
+{
+  "level1": [
+    {
+      "id": 1,
+      "text": "A vector space has a unique additive identity."
+    },
+    {
+      "id": 2,
+      "text": "Every element in a vector space has a unique additive inverse."
+    },
+    {
+      "id": 3,
+      "text": "Prove that the intersection of any collection of subspaces of V is a subspace of V."
+    },
+    {
+      "id": 4,
+      "text": "A basis of V is a list of vectors in V that is linearly independent and spans V."
+    },
+    {
+      "id": 5,
+      "text": "Every spanning list in a vector space can be reduced to a basis of the vector space."
+    },
+    {
+      "id": 6,
+      "text": "Every finite-dimensional vector space has a basis."
+    },
+    {
+      "id": 7,
+      "text": "Any two bases of a finite-dimensional vector space have the same length."
+    },
+    {
+      "id": 8,
+      "text": "If V is finite dimensional, then every spanning list of vectors in V with length dim V is a basis of V."
+    },
+    {
+      "id": 9,
+      "text": "If V is finite dimensional, then every linearly independent list of vectors in V with length dim V is a basis of V."
+    },
+    {
+      "id": 10,
+      "text": "An m-by-n matrix is a rectangular array with m rows and n columns."
+    }
+  ],
+  "level2": [
+    {
+      "id": 1,
+      "text": "Suppose that for each positive integer m, there exists a linearly independent list of m vectors in V. Then this theorem implies that V Sis infinite dimensional."
+    },
+    {
+      "id": 2,
+      "text": "Our intuition tells us that any vector space contained in a finitedimensional vector space should also be finite dimensional. We now prove that this intuition is correct."
+    },
+    {
+      "id": 3,
+      "text": "First suppose V and W are isomorphic finite-dimensional vector spaces. Thus there exists an invertible linear map T from V onto W."
+    },
+    {
+      "id": 4,
+      "text": "If the roles of the w and z were interchanged, the expression above would be replaced with its complex conjugate. In other words, we should expect that the inner product of w with z equals the complex conjugate of the inner product of z with w."
+    },
+    {
+      "id": 5,
+      "text": "As we will soon see, sometimes we need to know not only that an orthonormal basis exists, but also that any orthonormal list can be extended to an orthonormal basis. In the next corollary, the GramSchmidt procedure shows that such an extension is always possible"
+    },
+    {
+      "id": 6,
+      "text": "Now that we are dealing with inner-product spaces, we would like to know when there exists an orthonormal basis with respect to which we have an upper-triangular matrix. The next corollary shows that the existence of any basis with respect to which T has an upper-triangular matrix implies the existence of an orthonormal basis with this property."
+    },
+    {
+      "id": 7,
+      "text": "The deepest results related to inner-product spaces deal with the subject to which we now turn—operators on inner-product spaces. By exploiting properties of the adjoint, we will develop a detailed description of several important classes of operators on inner-product spaces."
+    },
+    {
+      "id": 8,
+      "text": "We have already proved this (without the hypothesis that T is self-adjoint) when V is a complex inner-product space (see 7.2). Thus we can assume that V is a real inner-product space and that T is a self-adjoint operator on V."
+    },
+    {
+      "id": 9,
+      "text": "We will soon see why normal operators are worthy of special attention. The next proposition provides a simple characterization of normal operators."
+    },
+    {
+      "id": 10,
+      "text": "Compare the next corollary to Exercise 28 in the previous chapter. That exercise implies that the eigenvalues of the adjoint of any operator are equal (as a set) to the complex conjugates of the eigenvalues of the operator."
+    }
+  ],
+  "level3": [
+    {
+      "id": 1,
+      "text": "The complex spectral theorem (7.9) gives a complete description of normal operators on complex inner-product spaces. In this section we will give a complete description of normal operators on real innerproduct spaces. Along the way, we will encounter a proposition (7.18) and a technique (block diagonal matrices) that are useful for both real and complex inner-product spaces."
+    },
+    {
+      "id": 2,
+      "text": "Our next result states that each normal operator on a real innerproduct space comes close to having a diagonal matrix—specifically, we get a block diagonal matrix with respect to some orthonormal basis, with each block having size at most 2-by-2. We cannot expect to do better than that because on a real inner-product space there exist normal operators that do not have a diagonal matrix with respect to any basis."
+    },
+    {
+      "id": 3,
+      "text": "The polar decomposition (7.41) states that each operator on V is the product of an isometry and a positive operator. Thus we can write each operator on V as the product of two operators, each of which comes from a class that we have completely described and that we understand reasonably well. The isometries are described by 7.37 and 7.38; the positive operators (which are all self-adjoint) are described by the spectral theorem (7.9 and 7.13)"
+    },
+    {
+      "id": 4,
+      "text": "When we worked with linear maps from one vector space to a second vector space, we considered the matrix of a linear map with respect to a basis for the first vector space and a basis for the second vector space. When dealing with operators, which are linear maps from a vector space to itself, we almost always use only one basis, making it play both roles. The singular-value decomposition allows us a rare opportunity to use two different bases for the matrix of an operator."
+    },
+    {
+      "id": 5,
+      "text": "In other words, every operator on V has a diagonal matrix with respect to some orthonormal bases of V, provided that we are permitted to use two different bases rather than a single basis as customary when working with operators. Singular values and the singular-value decomposition have many applications (some are given in the exercises), including applications in computational linear algebra."
+    },
+    {
+      "id": 6,
+      "text": "Some of the results in this chapter are valid on real vector spaces, so we have not assumed that V is a complex vector space. Most of the results in this chapter that are proved only for complex vector spaces have analogous results on real vector spaces that are proved in the next chapter. We deal with complex vector spaces first because the proofs on complex vector spaces are often simpler than the analogous proofs on real vector spaces."
+    },
+    {
+      "id": 7,
+      "text": "Unfortunately some operators do not have enough eigenvectors to lead to a good description. Thus in this section we introduce the concept of generalized eigenvectors, which will play a major role in our description of the structure of an operator. To understand why we need more than eigenvectors, let’s examine the question of describing an operator by decomposing its domain into invariant subspaces."
+    },
+    {
+      "id": 8,
+      "text": "What if T has fewer than dim V distinct eigenvalues, as can easily happen? Then each eigenvalue must appear at least once on the diagonal of any upper-triangular matrix of T, but some of them must be repeated. Could the number of times that a particular eigenvalue is repeated depend on which basis of V we choose?"
+    },
+    {
+      "id": 9,
+      "text": "Because every square matrix is the matrix of some operator, the proposition above allows us to translate results about eigenvalues of operators into the language of eigenvalues of square matrices. For example, every square matrix of complex numbers has an eigenvalue (from 5.10). As another example, every n-by-n matrix has at most n distinct eigenvalues (from 5.9)."
+    },
+    {
+      "id": 10,
+      "text": "Earlier we proved that each operator on a complex vector space has an upper-triangular matrix with respect to some basis (see 5.13). In this section we will see that we can almost do as well on real vector spaces. In the last two chapters we used block diagonal matrices, which extend the notion of diagonal matrices."
+    }
+  ]
+}
