@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import classes from "./index.module.css";
 
 const NewGame = () => {
   const [text, setText] = useState("");
@@ -6,6 +7,7 @@ const NewGame = () => {
   const [currIndex, setCurrIndex] = useState(0);
   const [correctChars, setCorrectChars] = useState(0);
   const [errorChars, setErrorChars] = useState(0);
+  const [blurText, setBlurText] = useState(true);
 
   useEffect(() => {
     getText("level1").then((texts) => {
@@ -87,9 +89,13 @@ const NewGame = () => {
   };
 
   return (
-    <div>
+    <div className={classes.textInput}>
       <p>Click on the text below and start typing (esc to reset)</p>
-      <div tabIndex={0} onKeyDown={handleKeyDown}>
+      <div
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+        onClick={() => setBlurText(false)}
+        className={`${classes.text} ${blurText ? classes.blurrText : ""}`}>
         {renderText()}
       </div>
     </div>

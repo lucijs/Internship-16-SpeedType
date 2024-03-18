@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <div className={classes.headerContainer}>
       <h1>Speed type</h1>
-      <div>
+      <div className={classes.buttons}>
         <Button
           onClick={handlePracticeClick}
           variant="contained"
