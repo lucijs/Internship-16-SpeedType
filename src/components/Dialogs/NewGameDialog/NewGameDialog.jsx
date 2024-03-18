@@ -1,9 +1,15 @@
 import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material";
 import classes from "../index.module.css";
+import { GAME } from "../../../providers/GameInfoProvider";
 
 const NewGameDialog = ({ isOpen, onClose, onSubmit }) => {
-  const handleSubmit = () => {
-    onSubmit();
+  const startRegular = () => {
+    onSubmit(GAME.REGULAR, {});
+    onClose();
+  };
+
+  const startInstantDeath = () => {
+    onSubmit(GAME.INSTANT_DEATH, {});
     onClose();
   };
 
@@ -13,10 +19,10 @@ const NewGameDialog = ({ isOpen, onClose, onSubmit }) => {
         Do you want to play regular or instant death mode?
       </DialogTitle>
       <DialogActions>
-        <Button onClick={handleSubmit} className={classes.dialog}>
+        <Button onClick={startRegular} className={classes.dialog}>
           Regular
         </Button>
-        <Button onClick={onClose} className={classes.dialog}>
+        <Button onClick={startInstantDeath} className={classes.dialog}>
           Instant death
         </Button>
       </DialogActions>

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classes from "../index.module.css";
+import { useGameInfo } from "../../../providers/GameInfoProvider";
 
 const NewGame = () => {
   const [text, setText] = useState("");
@@ -8,19 +9,62 @@ const NewGame = () => {
   const [correctChars, setCorrectChars] = useState(0);
   const [errorChars, setErrorChars] = useState(0);
   const [blurText, setBlurText] = useState(true);
+  const { activeMod, levelFinished, currentLevel } = useGameInfo();
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+  const [totalWords, setTotalWords] = useState(1);
+  const [duration, setDuration] = useState(null);
+
+  const handleStartTyping = () => {
+    setStartTime(Date.now());
+  };
+
+  const handleFinishTyping = () => {
+    if (startTime) {
+      setEndTime(Date.now());
+    }
+  };
+  /*
+  useEffect(() => {
+    if (endTime && startTime) {
+      const durationInSeconds = (endTime - startTime) / 6000;
+      setDuration(durationInSeconds);
+
+      if (activeMod !== null && currentLevel !== null) {
+        levelFinished(
+          activeMod,
+          currentLevel + 1,
+          correctChars / (errorChars + correctChars),
+          totalWords / durationInSeconds,
+          {}
+        );
+      }
+    }
+  }, [
+    endTime,
+    startTime,
+    activeMod,
+    currentLevel,
+    correctChars,
+    errorChars,
+    totalWords,
+    levelFinished,
+  ]);*/
 
   useEffect(() => {
     getText("level1").then((texts) => {
       const randomIndex = getRandomNumber();
       setText(texts[randomIndex].text);
     });
-  }, []);
+    resetGame();
+  }, [activeMod]);
 
   const resetGame = () => {
     setInputText("");
     setCurrIndex(0);
     setCorrectChars(0);
     setErrorChars(0);
+    setBlurText(true);
   };
 
   const renderText = () => {
@@ -51,6 +95,8 @@ const NewGame = () => {
   const handleKeyDown = (e) => {
     const { key } = e;
 
+    handleStartTyping();
+
     switch (key) {
       case "Escape":
         resetGame();
@@ -71,6 +117,7 @@ const NewGame = () => {
           if (text[currIndex] === " " && prevInputText === "") {
             newInputText += key;
             setCurrIndex(currIndex + 1);
+            setTotalWords((prev) => prev + 1);
             return newInputText;
           }
 
