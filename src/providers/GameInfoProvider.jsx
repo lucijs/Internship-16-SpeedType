@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const GAME = {
   REGULAR: "REGULAT",
@@ -7,8 +7,8 @@ export const GAME = {
 };
 
 const defaultContext = {
-  mod: null,
-  open: () => {},
+  activeMod: null,
+  display: () => {},
   close: () => {},
   additionalProps: {},
 };
@@ -16,13 +16,13 @@ const defaultContext = {
 const GameInfoContext = createContext(defaultContext);
 
 const GameInfoProvider = ({ children }) => {
-  const [activeMod, setActiveMod] = useState(defaultContext.mod);
+  const [activeMod, setActiveMod] = useState(defaultContext.activeMod);
   const [additionalProps, setAdditionalProps] = useState(
     defaultContext.additionalProps
   );
 
-  const open = (dialog, additionalProps) => {
-    setActiveMod(dialog);
+  const display = (mod, additionalProps) => {
+    setActiveMod(mod);
     setAdditionalProps(additionalProps);
   };
 
@@ -32,15 +32,13 @@ const GameInfoProvider = ({ children }) => {
   };
 
   return (
-    <GameInfoContext value={{ activeMod, open, close, additionalProps }}>
+    <GameInfoContext.Provider
+      value={{ activeMod, display, close, additionalProps }}>
       {children}
-    </GameInfoContext>
+    </GameInfoContext.Provider>
   );
 };
 
 export const useGameInfo = () => useContext(GameInfoContext);
 
 export default GameInfoProvider;
-
-//mod partije
-//(regular/instant death) te igračeve informacije (broj prijeđenih levela i WPM)

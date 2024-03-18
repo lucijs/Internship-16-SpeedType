@@ -3,6 +3,7 @@ import "./App.css";
 import MainPage from "./pages/MainPage/MainPage";
 import ThemeProvider from "./providers/ThemeProvider";
 import DialogProvider from "./providers/DialogProvider";
+import GameInfoProvider from "./providers/GameInfoProvider";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
       <StyledEngineProvider injectFirst>
         <ThemeProvider>
           <DialogProvider>
-            <MainPage />
+            <GameInfoProvider>
+              <MainPage />
+            </GameInfoProvider>
           </DialogProvider>
         </ThemeProvider>
       </StyledEngineProvider>

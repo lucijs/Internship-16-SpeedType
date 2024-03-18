@@ -1,18 +1,24 @@
 import { Button } from "@mui/material";
 import classes from "./index.module.css";
 import { DIALOG, useDialog } from "../../providers/DialogProvider";
+import { GAME, useGameInfo } from "../../providers/GameInfoProvider";
 
 const Header = () => {
   const { open } = useDialog();
+  const { display } = useGameInfo();
 
   const fun = () => {};
 
   const handlePracticeClick = () => {
-    open(DIALOG.PRACTICE_DIALOG, { onSubmit: fun });
+    open(DIALOG.PRACTICE_DIALOG, {
+      onSubmit: () => display(GAME.PRACTICE, {}),
+    });
   };
 
   const handleNewGameClick = () => {
-    open(DIALOG.NEW_GAME_DIALOG, { onSubmit: fun });
+    open(DIALOG.NEW_GAME_DIALOG, {
+      onSubmit: () => display(GAME.PRACTICE, {}),
+    });
   };
 
   return (
