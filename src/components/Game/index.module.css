@@ -10,6 +10,12 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  outline: none;
+}
+
+.practiceText {
+  outline: none;
+  width: 500px;
 }
 
 p,
